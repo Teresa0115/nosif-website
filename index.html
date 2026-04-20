@@ -112,7 +112,7 @@
       display: flex;
       flex-direction: column;
       justify-content: center;
-      padding: 6rem 4rem 6rem 3rem;
+      padding: 8rem 5rem 8rem 4rem;
       border-right: 1px solid var(--rule);
     }
 
@@ -137,11 +137,11 @@
     .hero-left h1 {
       font-family: var(--f-serif);
       font-size: clamp(2.4rem, 4vw, 3.8rem);
-      font-weight: 700;
-      line-height: 1.15;
+      font-weight: 400;
+      line-height: 1.5;
       letter-spacing: -0.01em;
       color: var(--ink);
-      margin-bottom: 1.8rem;
+      margin-bottom: 3rem;
     }
     .hero-left h1 em {
       font-style: italic;
@@ -185,7 +185,7 @@
     .h-stat-val {
       font-family: var(--f-serif);
       font-size: 1.2rem;
-      font-weight: 700;
+      font-weight: 400;
       color: var(--ink);
       line-height: 1;
     }
@@ -212,17 +212,17 @@
     .hero-img-bg {
       width: 100%;
       height: 100%;
-      background: var(--milk);
+      background: linear-gradient(160deg, #EDE8E1 0%, #CFC8BE 100%);
       display: flex;
-      align-items: center;
+      align-items: flex-end;
       justify-content: center;
-      font-size: 8rem;
-      border: 1px solid var(--rule);
+      font-size: 6rem;
+      padding-bottom: 2.5rem;
     }
     .hero-float {
       position: absolute;
-      background: var(--white);
-      border: 1px solid var(--rule);
+      background: rgba(255,255,255,.92);
+      box-shadow: 0 2px 18px rgba(28,24,20,.07);
       padding: 1rem 1.3rem;
     }
     .hero-float.f1 { bottom: -1.5rem; left: -2rem; }
@@ -245,7 +245,7 @@
        §2  Tagline
     ════════════════════════════════ */
     #tagline {
-      padding: 7rem 3rem;
+      padding: 9rem 3rem;
       text-align: center;
       border-bottom: 1px solid var(--rule);
     }
@@ -255,9 +255,9 @@
       font-size: clamp(1.5rem, 3vw, 2.4rem);
       font-weight: 400;
       color: var(--ink);
-      line-height: 1.5;
+      line-height: 1.75;
       max-width: 680px;
-      margin: 0 auto 1.5rem;
+      margin: 0 auto 2rem;
     }
     #tagline .tl-sub {
       font-size: 0.65rem;
@@ -276,7 +276,7 @@
     }
 
     .cat-item {
-      padding: 4rem 3rem;
+      padding: 5.5rem 3rem;
       border-right: 1px solid var(--rule);
       display: flex;
       flex-direction: column;
@@ -295,13 +295,13 @@
     .cat-img {
       width: 100%;
       aspect-ratio: 1 / 1;
-      background: var(--milk);
+      background: linear-gradient(135deg, #F0EBE4 0%, #DDD5C9 100%);
       display: flex;
-      align-items: center;
+      align-items: flex-end;
       justify-content: center;
-      font-size: 5rem;
-      margin-bottom: 2rem;
-      border: 1px solid var(--rule);
+      font-size: 4rem;
+      padding-bottom: 1.5rem;
+      margin-bottom: 2.5rem;
     }
     .cat-en {
       font-size: 0.58rem;
@@ -313,7 +313,7 @@
     .cat-zh {
       font-family: var(--f-serif);
       font-size: 1.3rem;
-      font-weight: 700;
+      font-weight: 400;
       color: var(--ink);
       margin-bottom: 0.8rem;
     }
@@ -346,7 +346,7 @@
        §4  Featured Products
     ════════════════════════════════ */
     #featured {
-      padding: 7rem 3rem;
+      padding: 9rem 3rem;
     }
 
     .section-header {
@@ -370,7 +370,7 @@
     .sec-title {
       font-family: var(--f-serif);
       font-size: clamp(1.3rem, 2.2vw, 1.8rem);
-      font-weight: 700;
+      font-weight: 400;
       color: var(--ink);
     }
     .sec-title em { font-style: italic; font-weight: 400; }
@@ -392,14 +392,13 @@
       display: grid;
       grid-template-columns: 1.4fr 1fr 1fr;
       grid-template-rows: auto auto;
-      gap: 1px;
-      background: var(--rule);
-      border: 1px solid var(--rule);
+      gap: 2.5rem;
+      background: transparent;
     }
 
     .prod-card {
       background: var(--white);
-      padding: 2rem;
+      padding: 2.5rem 0;
       display: flex;
       flex-direction: column;
       cursor: pointer;
@@ -411,16 +410,17 @@
     .pc-img {
       width: 100%;
       aspect-ratio: 1 / 1;
-      background: var(--off);
+      background: linear-gradient(135deg, #F4F0EB 0%, #E3DAD0 100%);
       display: flex;
-      align-items: center;
+      align-items: flex-end;
       justify-content: center;
-      font-size: 4rem;
-      margin-bottom: 1.5rem;
+      font-size: 3.5rem;
+      padding-bottom: 1rem;
+      margin-bottom: 1.8rem;
       overflow: hidden;
       position: relative;
     }
-    .pc-large .pc-img { aspect-ratio: 3 / 4; font-size: 6rem; }
+    .pc-large .pc-img { aspect-ratio: 3 / 4; font-size: 5rem; }
     .pc-img img {
       width: 100%; height: 100%;
       object-fit: cover;
@@ -450,7 +450,7 @@
     .pc-name {
       font-family: var(--f-serif);
       font-size: 1rem;
-      font-weight: 700;
+      font-weight: 400;
       color: var(--ink);
       margin-bottom: 0.4rem;
       line-height: 1.3;
@@ -474,7 +474,7 @@
     .pc-price {
       font-family: var(--f-serif);
       font-size: 1rem;
-      font-weight: 700;
+      font-weight: 400;
       color: var(--ink);
     }
     .pc-price sub {
@@ -493,7 +493,7 @@
       cursor: pointer;
       transition: all 0.18s;
     }
-    .pc-btn:hover { border-color: var(--ink); background: var(--ink); color: var(--white); }
+    .pc-btn:hover { border-color: var(--ink); background: transparent; color: var(--ink); }
 
     /* ════════════════════════════════
        §5  Brand Story
@@ -507,7 +507,7 @@
     }
 
     .story-left {
-      padding: 7rem 4rem 7rem 3rem;
+      padding: 9rem 5rem 9rem 3rem;
       border-right: 1px solid var(--rule);
       display: flex;
       flex-direction: column;
@@ -523,8 +523,8 @@
     .story-left h2 {
       font-family: var(--f-serif);
       font-size: clamp(1.8rem, 3vw, 2.6rem);
-      font-weight: 700;
-      line-height: 1.2;
+      font-weight: 400;
+      line-height: 1.45;
       color: var(--ink);
       margin-bottom: 0.5rem;
     }
@@ -556,14 +556,13 @@
     .story-pillars {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 1px;
-      margin-top: 2.5rem;
-      background: var(--rule);
-      border: 1px solid var(--rule);
+      gap: 0;
+      margin-top: 3.5rem;
     }
     .pillar {
-      background: var(--off);
-      padding: 1.2rem;
+      background: transparent;
+      padding: 1.4rem 0;
+      border-top: 1px solid var(--rule);
     }
     .pillar h4 {
       font-size: 0.75rem;
@@ -585,11 +584,12 @@
     }
     .story-img-main {
       flex: 1;
-      background: var(--milk);
+      background: linear-gradient(160deg, #EDE8E1 0%, #CCC4B8 100%);
       display: flex;
-      align-items: center;
+      align-items: flex-end;
       justify-content: center;
-      font-size: 9rem;
+      font-size: 7rem;
+      padding-bottom: 2.5rem;
       border-bottom: 1px solid var(--rule);
       min-height: 400px;
     }
@@ -608,7 +608,7 @@
     .sc-val {
       font-family: var(--f-serif);
       font-size: 1.4rem;
-      font-weight: 700;
+      font-weight: 400;
       color: var(--ink);
       line-height: 1;
       margin-bottom: 0.2rem;
@@ -623,7 +623,7 @@
        §6  Order CTA
     ════════════════════════════════ */
     #cta {
-      padding: 9rem 3rem;
+      padding: 12rem 3rem;
       text-align: center;
       border-top: 1px solid var(--rule);
       border-bottom: 1px solid var(--rule);
@@ -660,10 +660,10 @@
     #cta h2 {
       font-family: var(--f-serif);
       font-size: clamp(2rem, 4vw, 3.6rem);
-      font-weight: 700;
+      font-weight: 400;
       color: var(--ink);
-      line-height: 1.15;
-      margin-bottom: 1.4rem;
+      line-height: 1.5;
+      margin-bottom: 1.8rem;
     }
     #cta h2 em { font-style: italic; font-weight: 400; }
     #cta p {
@@ -680,17 +680,17 @@
       gap: 2rem;
     }
     .btn-dark {
-      background: var(--ink);
-      color: var(--white);
-      border: none;
+      background: transparent;
+      color: var(--ink);
+      border: 1px solid var(--ink);
       padding: 0.9rem 2.8rem;
       font-family: var(--f-sans);
       font-size: 0.72rem;
       letter-spacing: 0.18em;
       cursor: pointer;
-      transition: opacity 0.18s;
+      transition: all 0.22s;
     }
-    .btn-dark:hover { opacity: 0.7; }
+    .btn-dark:hover { background: var(--ink); color: var(--white); }
     .btn-ghost-dark {
       font-size: 0.72rem;
       letter-spacing: 0.16em;
@@ -931,7 +931,7 @@
 
     <div class="prod-card pc-large">
       <div class="pc-img">
-        <span style="font-size:6rem;">🍮</span>
+        <span style="font-size:5rem;">🍮</span>
         <span class="pc-tag">人氣</span>
       </div>
       <p class="pc-cat">Canelé · 可麗露</p>
