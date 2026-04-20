@@ -1,0 +1,1126 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nosif Pastry｜法國廚師的甜點</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Noto+Sans+TC:wght@200;300;400&display=swap" rel="stylesheet" />
+  <style>
+    /* ── Reset ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --white:    #FFFFFF;
+      --off:      #F8F5F1;
+      --milk:     #EDE8E1;
+      --rule:     #E0DAD2;
+      --ink:      #1C1814;
+      --ink-md:   #5C5650;
+      --ink-lt:   #9A948C;
+      --accent:   #B8956A;
+
+      --f-serif:  'Playfair Display', Georgia, serif;
+      --f-sans:   'Noto Sans TC', 'Helvetica Neue', Arial, sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--f-sans);
+      background: var(--white);
+      color: var(--ink);
+      font-weight: 200;
+      line-height: 2.1;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    img { display: block; max-width: 100%; }
+
+    /* ════════════════════════════════
+       Navbar
+    ════════════════════════════════ */
+    #nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      padding: 1.4rem 3rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: rgba(255,255,255,.94);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .nav-brand {
+      display: flex;
+      flex-direction: column;
+      gap: 0.05rem;
+    }
+    .nav-brand-en {
+      font-family: var(--f-serif);
+      font-size: 0.88rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      color: var(--ink);
+    }
+    .nav-brand-zh {
+      font-size: 0.5rem;
+      letter-spacing: 0.3em;
+      color: var(--ink-lt);
+      text-transform: uppercase;
+    }
+
+    #nav ul {
+      display: flex;
+      gap: 2.2rem;
+      list-style: none;
+    }
+    #nav ul a {
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      color: var(--ink-md);
+      transition: color 0.16s;
+    }
+    #nav ul a:hover { color: var(--ink); }
+
+    .nav-order {
+      font-size: 0.7rem;
+      letter-spacing: 0.14em;
+      color: var(--ink);
+      border-bottom: 1px solid var(--ink);
+      padding-bottom: 0.1rem;
+      transition: opacity 0.18s;
+    }
+    .nav-order:hover { opacity: 0.45; }
+
+    /* ════════════════════════════════
+       §1  Hero
+    ════════════════════════════════ */
+    #hero {
+      padding-top: 64px;
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .hero-left {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 6rem 4rem 6rem 3rem;
+      border-right: 1px solid var(--rule);
+    }
+
+    .hero-eyebrow {
+      font-size: 0.58rem;
+      letter-spacing: 0.38em;
+      color: var(--ink-lt);
+      text-transform: uppercase;
+      margin-bottom: 2.4rem;
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+    }
+    .hero-eyebrow::before {
+      content: '';
+      display: block;
+      width: 24px;
+      height: 1px;
+      background: var(--ink-lt);
+    }
+
+    .hero-left h1 {
+      font-family: var(--f-serif);
+      font-size: clamp(2.4rem, 4vw, 3.8rem);
+      font-weight: 700;
+      line-height: 1.15;
+      letter-spacing: -0.01em;
+      color: var(--ink);
+      margin-bottom: 1.8rem;
+    }
+    .hero-left h1 em {
+      font-style: italic;
+      font-weight: 400;
+    }
+
+    .hero-left p {
+      font-size: 0.85rem;
+      color: var(--ink-md);
+      line-height: 2;
+      max-width: 340px;
+      margin-bottom: 3rem;
+    }
+
+    .hero-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.8rem;
+      font-size: 0.72rem;
+      letter-spacing: 0.16em;
+      color: var(--ink);
+    }
+    .hero-cta::after {
+      content: '';
+      display: block;
+      width: 32px;
+      height: 1px;
+      background: var(--ink);
+      transition: width 0.24s;
+    }
+    .hero-cta:hover::after { width: 56px; }
+
+    .hero-stats {
+      margin-top: 4rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--rule);
+      display: flex;
+      gap: 2.5rem;
+    }
+    .h-stat { display: flex; flex-direction: column; gap: 0.2rem; }
+    .h-stat-val {
+      font-family: var(--f-serif);
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--ink);
+      line-height: 1;
+    }
+    .h-stat-lbl {
+      font-size: 0.58rem;
+      letter-spacing: 0.18em;
+      color: var(--ink-lt);
+    }
+
+    .hero-right {
+      background: var(--off);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 60vh;
+    }
+    .hero-right .hero-img-wrap {
+      width: 72%;
+      aspect-ratio: 3 / 4;
+      position: relative;
+    }
+    .hero-img-bg {
+      width: 100%;
+      height: 100%;
+      background: var(--milk);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 8rem;
+      border: 1px solid var(--rule);
+    }
+    .hero-float {
+      position: absolute;
+      background: var(--white);
+      border: 1px solid var(--rule);
+      padding: 1rem 1.3rem;
+    }
+    .hero-float.f1 { bottom: -1.5rem; left: -2rem; }
+    .hero-float.f2 { top: -1rem; right: -1.5rem; }
+    .hf-label {
+      font-size: 0.55rem;
+      letter-spacing: 0.2em;
+      color: var(--ink-lt);
+      text-transform: uppercase;
+      margin-bottom: 0.15rem;
+    }
+    .hf-val {
+      font-family: var(--f-serif);
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--ink);
+    }
+
+    /* ════════════════════════════════
+       §2  Tagline
+    ════════════════════════════════ */
+    #tagline {
+      padding: 7rem 3rem;
+      text-align: center;
+      border-bottom: 1px solid var(--rule);
+    }
+    #tagline blockquote {
+      font-family: var(--f-serif);
+      font-style: italic;
+      font-size: clamp(1.5rem, 3vw, 2.4rem);
+      font-weight: 400;
+      color: var(--ink);
+      line-height: 1.5;
+      max-width: 680px;
+      margin: 0 auto 1.5rem;
+    }
+    #tagline .tl-sub {
+      font-size: 0.65rem;
+      letter-spacing: 0.3em;
+      color: var(--ink-lt);
+      text-transform: uppercase;
+    }
+
+    /* ════════════════════════════════
+       §3  Categories
+    ════════════════════════════════ */
+    #categories {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .cat-item {
+      padding: 4rem 3rem;
+      border-right: 1px solid var(--rule);
+      display: flex;
+      flex-direction: column;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .cat-item:last-child { border-right: none; }
+    .cat-item:hover { background: var(--off); }
+
+    .cat-num {
+      font-size: 0.55rem;
+      letter-spacing: 0.28em;
+      color: var(--ink-lt);
+      margin-bottom: 2rem;
+    }
+    .cat-img {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      background: var(--milk);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 5rem;
+      margin-bottom: 2rem;
+      border: 1px solid var(--rule);
+    }
+    .cat-en {
+      font-size: 0.58rem;
+      letter-spacing: 0.26em;
+      color: var(--ink-lt);
+      text-transform: uppercase;
+      margin-bottom: 0.4rem;
+    }
+    .cat-zh {
+      font-family: var(--f-serif);
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: 0.8rem;
+    }
+    .cat-desc {
+      font-size: 0.78rem;
+      color: var(--ink-md);
+      line-height: 1.85;
+      flex: 1;
+    }
+    .cat-link {
+      margin-top: 1.8rem;
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      color: var(--ink);
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+    .cat-link::after {
+      content: '';
+      display: block;
+      width: 20px;
+      height: 1px;
+      background: currentColor;
+      transition: width 0.2s;
+    }
+    .cat-item:hover .cat-link::after { width: 36px; }
+
+    /* ════════════════════════════════
+       §4  Featured Products
+    ════════════════════════════════ */
+    #featured {
+      padding: 7rem 3rem;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      margin-bottom: 4rem;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid var(--rule);
+    }
+    .section-header-left {
+      display: flex;
+      align-items: baseline;
+      gap: 1.2rem;
+    }
+    .sec-num {
+      font-size: 0.58rem;
+      letter-spacing: 0.26em;
+      color: var(--ink-lt);
+    }
+    .sec-title {
+      font-family: var(--f-serif);
+      font-size: clamp(1.3rem, 2.2vw, 1.8rem);
+      font-weight: 700;
+      color: var(--ink);
+    }
+    .sec-title em { font-style: italic; font-weight: 400; }
+    .sec-all {
+      font-size: 0.65rem;
+      letter-spacing: 0.18em;
+      color: var(--ink-lt);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: color 0.16s, gap 0.2s;
+      cursor: pointer;
+    }
+    .sec-all::after { content: '→'; }
+    .sec-all:hover { color: var(--ink); gap: 0.9rem; }
+
+    /* Product grid — editorial asymmetric */
+    .prod-grid {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr 1fr;
+      grid-template-rows: auto auto;
+      gap: 1px;
+      background: var(--rule);
+      border: 1px solid var(--rule);
+    }
+
+    .prod-card {
+      background: var(--white);
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      cursor: pointer;
+      transition: background 0.18s;
+    }
+    .prod-card:hover { background: var(--off); }
+    .prod-card.pc-large { grid-row: span 2; }
+
+    .pc-img {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      background: var(--off);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 4rem;
+      margin-bottom: 1.5rem;
+      overflow: hidden;
+      position: relative;
+    }
+    .pc-large .pc-img { aspect-ratio: 3 / 4; font-size: 6rem; }
+    .pc-img img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s;
+    }
+    .prod-card:hover .pc-img img { transform: scale(1.04); }
+
+    .pc-tag {
+      position: absolute;
+      top: 0.7rem; left: 0.7rem;
+      font-size: 0.55rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      background: var(--ink);
+      color: var(--white);
+      padding: 0.2rem 0.55rem;
+    }
+    .pc-tag.tag-season { background: var(--accent); }
+
+    .pc-cat {
+      font-size: 0.56rem;
+      letter-spacing: 0.26em;
+      color: var(--ink-lt);
+      text-transform: uppercase;
+      margin-bottom: 0.35rem;
+    }
+    .pc-name {
+      font-family: var(--f-serif);
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: 0.4rem;
+      line-height: 1.3;
+    }
+    .pc-large .pc-name { font-size: 1.2rem; }
+    .pc-desc {
+      font-size: 0.76rem;
+      color: var(--ink-md);
+      line-height: 1.8;
+      flex: 1;
+      margin-bottom: 1.2rem;
+    }
+    .pc-foot {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 1rem;
+      border-top: 1px solid var(--rule);
+      margin-top: auto;
+    }
+    .pc-price {
+      font-family: var(--f-serif);
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--ink);
+    }
+    .pc-price sub {
+      font-family: var(--f-sans);
+      font-size: 0.6rem;
+      font-weight: 300;
+      color: var(--ink-lt);
+    }
+    .pc-btn {
+      font-size: 0.62rem;
+      letter-spacing: 0.14em;
+      color: var(--ink);
+      border: 1px solid var(--rule);
+      background: transparent;
+      padding: 0.45rem 0.9rem;
+      cursor: pointer;
+      transition: all 0.18s;
+    }
+    .pc-btn:hover { border-color: var(--ink); background: var(--ink); color: var(--white); }
+
+    /* ════════════════════════════════
+       §5  Brand Story
+    ════════════════════════════════ */
+    #story {
+      margin-top: 1px;
+      background: var(--off);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      border-top: 1px solid var(--rule);
+    }
+
+    .story-left {
+      padding: 7rem 4rem 7rem 3rem;
+      border-right: 1px solid var(--rule);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .story-num {
+      font-size: 0.56rem;
+      letter-spacing: 0.3em;
+      color: var(--ink-lt);
+      text-transform: uppercase;
+      margin-bottom: 2rem;
+    }
+    .story-left h2 {
+      font-family: var(--f-serif);
+      font-size: clamp(1.8rem, 3vw, 2.6rem);
+      font-weight: 700;
+      line-height: 1.2;
+      color: var(--ink);
+      margin-bottom: 0.5rem;
+    }
+    .story-left h2 em { font-style: italic; font-weight: 400; }
+
+    .story-rule {
+      width: 32px;
+      height: 1px;
+      background: var(--ink-lt);
+      margin: 1.8rem 0;
+    }
+    .story-left p {
+      font-size: 0.83rem;
+      color: var(--ink-md);
+      line-height: 2.1;
+      margin-bottom: 1rem;
+      max-width: 380px;
+    }
+    .story-left blockquote {
+      font-family: var(--f-serif);
+      font-style: italic;
+      font-size: 1.05rem;
+      color: var(--ink);
+      line-height: 1.6;
+      padding-left: 1.2rem;
+      border-left: 2px solid var(--ink-lt);
+      margin: 2rem 0;
+    }
+    .story-pillars {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1px;
+      margin-top: 2.5rem;
+      background: var(--rule);
+      border: 1px solid var(--rule);
+    }
+    .pillar {
+      background: var(--off);
+      padding: 1.2rem;
+    }
+    .pillar h4 {
+      font-size: 0.75rem;
+      font-weight: 400;
+      letter-spacing: 0.06em;
+      color: var(--ink);
+      margin-bottom: 0.3rem;
+    }
+    .pillar p {
+      font-size: 0.7rem;
+      color: var(--ink-lt);
+      line-height: 1.7;
+      margin: 0;
+    }
+
+    .story-right {
+      display: flex;
+      flex-direction: column;
+    }
+    .story-img-main {
+      flex: 1;
+      background: var(--milk);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 9rem;
+      border-bottom: 1px solid var(--rule);
+      min-height: 400px;
+    }
+    .story-img-main img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .story-caption {
+      padding: 2rem 2.5rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+    }
+    .sc-item {}
+    .sc-val {
+      font-family: var(--f-serif);
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--ink);
+      line-height: 1;
+      margin-bottom: 0.2rem;
+    }
+    .sc-lbl {
+      font-size: 0.6rem;
+      letter-spacing: 0.18em;
+      color: var(--ink-lt);
+    }
+
+    /* ════════════════════════════════
+       §6  Order CTA
+    ════════════════════════════════ */
+    #cta {
+      padding: 9rem 3rem;
+      text-align: center;
+      border-top: 1px solid var(--rule);
+      border-bottom: 1px solid var(--rule);
+      position: relative;
+      overflow: hidden;
+    }
+    #cta .cta-bg-text {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-family: var(--f-serif);
+      font-style: italic;
+      font-size: clamp(8rem, 18vw, 16rem);
+      font-weight: 700;
+      color: transparent;
+      -webkit-text-stroke: 1px var(--rule);
+      white-space: nowrap;
+      pointer-events: none;
+      user-select: none;
+      line-height: 1;
+    }
+    #cta .cta-inner {
+      position: relative;
+      z-index: 1;
+    }
+    #cta .cta-label {
+      font-size: 0.58rem;
+      letter-spacing: 0.38em;
+      color: var(--ink-lt);
+      text-transform: uppercase;
+      margin-bottom: 2rem;
+    }
+    #cta h2 {
+      font-family: var(--f-serif);
+      font-size: clamp(2rem, 4vw, 3.6rem);
+      font-weight: 700;
+      color: var(--ink);
+      line-height: 1.15;
+      margin-bottom: 1.4rem;
+    }
+    #cta h2 em { font-style: italic; font-weight: 400; }
+    #cta p {
+      font-size: 0.85rem;
+      color: var(--ink-md);
+      line-height: 2;
+      max-width: 420px;
+      margin: 0 auto 3rem;
+    }
+    .cta-actions {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 2rem;
+    }
+    .btn-dark {
+      background: var(--ink);
+      color: var(--white);
+      border: none;
+      padding: 0.9rem 2.8rem;
+      font-family: var(--f-sans);
+      font-size: 0.72rem;
+      letter-spacing: 0.18em;
+      cursor: pointer;
+      transition: opacity 0.18s;
+    }
+    .btn-dark:hover { opacity: 0.7; }
+    .btn-ghost-dark {
+      font-size: 0.72rem;
+      letter-spacing: 0.16em;
+      color: var(--ink);
+      background: transparent;
+      border: none;
+      border-bottom: 1px solid var(--ink);
+      padding-bottom: 0.1rem;
+      cursor: pointer;
+      transition: opacity 0.18s;
+    }
+    .btn-ghost-dark:hover { opacity: 0.45; }
+
+    /* ════════════════════════════════
+       Footer
+    ════════════════════════════════ */
+    footer {
+      padding: 4rem 3rem 2.5rem;
+      background: var(--ink);
+    }
+    .footer-top {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 3rem;
+      padding-bottom: 3rem;
+      border-bottom: 1px solid rgba(255,255,255,.08);
+    }
+    .f-brand-en {
+      font-family: var(--f-serif);
+      font-size: 0.95rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      color: rgba(255,255,255,.85);
+      margin-bottom: 0.15rem;
+    }
+    .f-brand-zh {
+      font-size: 0.52rem;
+      letter-spacing: 0.28em;
+      color: rgba(255,255,255,.3);
+      margin-bottom: 1.2rem;
+    }
+    .f-about {
+      font-size: 0.76rem;
+      color: rgba(255,255,255,.38);
+      line-height: 1.9;
+      max-width: 240px;
+    }
+    footer h5 {
+      font-size: 0.52rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.28);
+      margin-bottom: 1.2rem;
+    }
+    footer ul { list-style: none; }
+    footer ul li {
+      margin-bottom: 0.6rem;
+      font-size: 0.76rem;
+    }
+    footer ul li a {
+      color: rgba(255,255,255,.42);
+      transition: color 0.16s;
+    }
+    footer ul li a:hover { color: rgba(255,255,255,.8); }
+    .footer-bottom {
+      padding-top: 2rem;
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.62rem;
+      color: rgba(255,255,255,.2);
+      letter-spacing: 0.08em;
+    }
+
+    /* ════════════════════════════════
+       Toast
+    ════════════════════════════════ */
+    #toast {
+      position: fixed;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%) translateY(12px);
+      background: var(--ink);
+      color: rgba(255,255,255,.85);
+      padding: 0.75rem 2rem;
+      font-size: 0.72rem;
+      letter-spacing: 0.1em;
+      opacity: 0;
+      pointer-events: none;
+      transition: all 0.28s;
+      z-index: 500;
+      white-space: nowrap;
+    }
+    #toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+    /* ════════════════════════════════
+       Responsive
+    ════════════════════════════════ */
+    @media (max-width: 960px) {
+      #nav { padding: 1.2rem 1.5rem; }
+      #nav ul { display: none; }
+      #hero { grid-template-columns: 1fr; }
+      .hero-left { padding: 4rem 1.5rem; border-right: none; border-bottom: 1px solid var(--rule); }
+      .hero-right { min-height: 50vw; }
+      #categories { grid-template-columns: 1fr; }
+      .cat-item { border-right: none; border-bottom: 1px solid var(--rule); padding: 2.5rem 1.5rem; }
+      #featured { padding: 5rem 1.5rem; }
+      .prod-grid { grid-template-columns: 1fr 1fr; }
+      .prod-card.pc-large { grid-row: span 1; }
+      #story { grid-template-columns: 1fr; }
+      .story-left { padding: 5rem 1.5rem; border-right: none; border-bottom: 1px solid var(--rule); }
+      .footer-top { grid-template-columns: 1fr 1fr; gap: 2rem; }
+      #cta { padding: 6rem 1.5rem; }
+    }
+    @media (max-width: 600px) {
+      .prod-grid { grid-template-columns: 1fr; }
+      .story-pillars { grid-template-columns: 1fr; }
+      .footer-top { grid-template-columns: 1fr; }
+      .cta-actions { flex-direction: column; gap: 1.2rem; }
+      .hero-stats { flex-wrap: wrap; gap: 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── Navbar ── -->
+<nav id="nav">
+  <a class="nav-brand" href="#">
+    <span class="nav-brand-en">Nosif Pastry</span>
+    <span class="nav-brand-zh">法國廚師的甜點</span>
+  </a>
+  <ul>
+    <li><a href="#categories">商品</a></li>
+    <li><a href="#featured">精選</a></li>
+    <li><a href="#story">品牌</a></li>
+    <li><a href="#cta">預訂</a></li>
+  </ul>
+  <a class="nav-order" href="#cta">立即預訂</a>
+</nav>
+
+
+<!-- ════════════════════════════════
+     §1  Hero
+════════════════════════════════ -->
+<section id="hero">
+  <div class="hero-left">
+    <p class="hero-eyebrow">Nosif Pastry · 台北</p>
+    <h1>
+      法式手工甜點，<br>
+      為日常帶來<br>
+      <em>一份細緻</em>
+    </h1>
+    <p>選用當季食材，以法式傳統工法製作。每日限量現烤，不含防腐劑。可麗露、可頌、生日蛋糕，以及每季限定甜點。</p>
+    <a class="hero-cta" href="#featured">探索本週菜單</a>
+    <div class="hero-stats">
+      <div class="h-stat">
+        <span class="h-stat-val">每日</span>
+        <span class="h-stat-lbl">限量現烤</span>
+      </div>
+      <div class="h-stat">
+        <span class="h-stat-val">無</span>
+        <span class="h-stat-lbl">防腐劑添加</span>
+      </div>
+      <div class="h-stat">
+        <span class="h-stat-val">36 年</span>
+        <span class="h-stat-lbl">法國工作坊歷練</span>
+      </div>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-img-wrap">
+      <div class="hero-img-bg">🥐</div>
+      <div class="hero-float f1">
+        <div class="hf-label">本週人氣</div>
+        <div class="hf-val">可麗露禮盒</div>
+      </div>
+      <div class="hero-float f2">
+        <div class="hf-label">季節限定</div>
+        <div class="hf-val">春季草莓</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════
+     §2  Tagline
+════════════════════════════════ -->
+<section id="tagline">
+  <blockquote>「好的甜點不需要解釋，<br>一口就能感受到。」</blockquote>
+  <p class="tl-sub">Nosif Pastry · Fait à la Main</p>
+</section>
+
+
+<!-- ════════════════════════════════
+     §3  Categories
+════════════════════════════════ -->
+<section id="categories">
+  <div class="cat-item">
+    <div class="cat-num">01</div>
+    <div class="cat-img">🍮</div>
+    <p class="cat-en">Canelé de Bordeaux</p>
+    <h3 class="cat-zh">可麗露</h3>
+    <p class="cat-desc">蜂蠟模具烘烤，焦糖脆殼包覆柔軟蛋奶心。提供原味、巧克力、抹茶、伯爵四種口味，亦有禮盒裝可供選購。</p>
+    <span class="cat-link">查看商品</span>
+  </div>
+  <div class="cat-item">
+    <div class="cat-num">02</div>
+    <div class="cat-img">🥐</div>
+    <p class="cat-en">Croissant</p>
+    <h3 class="cat-zh">手工可頌</h3>
+    <p class="cat-desc">72 小時低溫發酵，手工折疊 27 層奶油薄片。原味、巧克力、芋泥三種口味，每日限量現烤。</p>
+    <span class="cat-link">查看商品</span>
+  </div>
+  <div class="cat-item">
+    <div class="cat-num">03</div>
+    <div class="cat-img">🎂</div>
+    <p class="cat-en">Birthday Cake</p>
+    <h3 class="cat-zh">生日蛋糕</h3>
+    <p class="cat-desc">全客製化訂製，依個人需求設計口味與裝飾。北海道鮮奶油，搭配當季水果，請提前 5 天預訂。</p>
+    <span class="cat-link">了解更多</span>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════
+     §4  Featured Products
+════════════════════════════════ -->
+<section id="featured">
+  <div class="section-header">
+    <div class="section-header-left">
+      <span class="sec-num">04</span>
+      <h2 class="sec-title">本週<em>精選</em></h2>
+    </div>
+    <span class="sec-all">查看全部</span>
+  </div>
+
+  <div class="prod-grid">
+
+    <div class="prod-card pc-large">
+      <div class="pc-img">
+        <span style="font-size:6rem;">🍮</span>
+        <span class="pc-tag">人氣</span>
+      </div>
+      <p class="pc-cat">Canelé · 可麗露</p>
+      <h3 class="pc-name">可麗露禮盒（4 入）</h3>
+      <p class="pc-desc">原味、巧克力、抹茶、伯爵，四種口味各一。精緻禮盒包裝，適合作為伴手禮。</p>
+      <div class="pc-foot">
+        <div class="pc-price">NT$ 360 <sub>/ 盒</sub></div>
+        <button class="pc-btn" onclick="toast('可麗露禮盒（4入）')">加入預訂</button>
+      </div>
+    </div>
+
+    <div class="prod-card">
+      <div class="pc-img">
+        <span style="font-size:4rem;">🥐</span>
+        <span class="pc-tag">熱銷</span>
+      </div>
+      <p class="pc-cat">Croissant · 可頌</p>
+      <h3 class="pc-name">原味可頌</h3>
+      <p class="pc-desc">27 層奶油薄片，烤出酥脆蜂巢紋理。</p>
+      <div class="pc-foot">
+        <div class="pc-price">NT$ 70 <sub>/ 個</sub></div>
+        <button class="pc-btn" onclick="toast('原味可頌')">加入預訂</button>
+      </div>
+    </div>
+
+    <div class="prod-card">
+      <div class="pc-img">
+        <span style="font-size:4rem;">🟤</span>
+      </div>
+      <p class="pc-cat">Croissant · 可頌</p>
+      <h3 class="pc-name">巧克力可頌</h3>
+      <p class="pc-desc">比利時苦甜巧克力內餡，奶油層次豐富。</p>
+      <div class="pc-foot">
+        <div class="pc-price">NT$ 80 <sub>/ 個</sub></div>
+        <button class="pc-btn" onclick="toast('巧克力可頌')">加入預訂</button>
+      </div>
+    </div>
+
+    <div class="prod-card">
+      <div class="pc-img">
+        <span style="font-size:4rem;">🌸</span>
+        <span class="pc-tag tag-season">季節限定</span>
+      </div>
+      <p class="pc-cat">Saison · 季節限定</p>
+      <h3 class="pc-name">春季草莓可頌</h3>
+      <p class="pc-desc">台灣當季草莓內餡，每週限量 20 個。</p>
+      <div class="pc-foot">
+        <div class="pc-price">NT$ 120 <sub>/ 個</sub></div>
+        <button class="pc-btn" onclick="toast('春季草莓可頌')">加入預訂</button>
+      </div>
+    </div>
+
+    <div class="prod-card">
+      <div class="pc-img">
+        <span style="font-size:4rem;">🎂</span>
+      </div>
+      <p class="pc-cat">Cake · 生日蛋糕</p>
+      <h3 class="pc-name">草莓鮮奶油蛋糕 6 吋</h3>
+      <p class="pc-desc">北海道鮮奶油，提前 5 天預訂。</p>
+      <div class="pc-foot">
+        <div class="pc-price">NT$ 1,280</div>
+        <button class="pc-btn" onclick="toast('草莓鮮奶油蛋糕')">加入預訂</button>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════
+     §5  Brand Story
+════════════════════════════════ -->
+<section id="story">
+  <div class="story-left">
+    <span class="story-num">05 — Notre Histoire</span>
+    <h2>從巴黎帶回來的<br><em>一份執著</em></h2>
+    <div class="story-rule"></div>
+    <blockquote>「好的甜點，不需要複雜的說明，一口就能感受到。」</blockquote>
+    <p>Nosif Pastry 的創立，源自主廚在法國工作坊 36 年的磨練——學的不只是配方，而是對食材的尊重，對工法的耐心，以及讓每一口都有記憶點的執著。</p>
+    <p>我們不追求量，只做每天力所能及的份額，讓每一個可麗露、每一個可頌，都在最好的狀態到達你的手中。</p>
+    <div class="story-pillars">
+      <div class="pillar">
+        <h4>當季食材</h4>
+        <p>配合產季選用台灣在地食材</p>
+      </div>
+      <div class="pillar">
+        <h4>純手工</h4>
+        <p>每個步驟親手完成</p>
+      </div>
+      <div class="pillar">
+        <h4>無添加</h4>
+        <p>不加防腐劑與人工香料</p>
+      </div>
+      <div class="pillar">
+        <h4>限量製作</h4>
+        <p>每日出爐數量固定</p>
+      </div>
+    </div>
+  </div>
+  <div class="story-right">
+    <div class="story-img-main">🥐</div>
+    <div class="story-caption">
+      <div class="sc-item">
+        <div class="sc-val">36 年</div>
+        <div class="sc-lbl">法國工作坊歷練</div>
+      </div>
+      <div class="sc-item">
+        <div class="sc-val">每日</div>
+        <div class="sc-lbl">限量現烤</div>
+      </div>
+      <div class="sc-item">
+        <div class="sc-val">4 種</div>
+        <div class="sc-lbl">可麗露口味</div>
+      </div>
+      <div class="sc-item">
+        <div class="sc-val">無</div>
+        <div class="sc-lbl">防腐劑添加</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════
+     §6  Order CTA
+════════════════════════════════ -->
+<section id="cta">
+  <span class="cta-bg-text" aria-hidden="true">Nosif</span>
+  <div class="cta-inner">
+    <p class="cta-label">立即預訂</p>
+    <h2>準備好了嗎，<br><em>來一份手工甜點</em></h2>
+    <p>每週限量出爐，提前預訂才不會向隅。歡迎透過 Line 或 Instagram 私訊，我們很樂意為你安排。</p>
+    <div class="cta-actions">
+      <button class="btn-dark" onclick="toast('預訂')">立即預訂</button>
+      <button class="btn-ghost-dark" onclick="document.querySelector('#featured').scrollIntoView({behavior:'smooth'})">查看本週菜單</button>
+    </div>
+  </div>
+</section>
+
+
+<!-- Footer -->
+<footer>
+  <div class="footer-top">
+    <div>
+      <div class="f-brand-en">Nosif Pastry</div>
+      <div class="f-brand-zh">法國廚師的甜點</div>
+      <p class="f-about">以法式工法手工製作，每日限量現烤，不含防腐劑。為台灣的日常帶來一份來自法國的細緻滋味。</p>
+    </div>
+    <div>
+      <h5>商品</h5>
+      <ul>
+        <li><a href="#categories">可麗露</a></li>
+        <li><a href="#categories">手工可頌</a></li>
+        <li><a href="#categories">生日蛋糕</a></li>
+      </ul>
+    </div>
+    <div>
+      <h5>資訊</h5>
+      <ul>
+        <li><a href="#story">品牌故事</a></li>
+        <li><a href="#cta">如何預訂</a></li>
+      </ul>
+    </div>
+    <div>
+      <h5>聯絡</h5>
+      <ul>
+        <li><a href="#">Line：@nosifpastry</a></li>
+        <li><a href="#">IG：@nosif.pastry</a></li>
+        <li><a href="#">hello@nosifpastry.com</a></li>
+        <li><a href="#">台北市大安區</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 Nosif Pastry · 法國廚師的甜點</span>
+    <span>手工烘焙，用心製作</span>
+  </div>
+</footer>
+
+<div id="toast"></div>
+
+<script>
+  function toast(name) {
+    const t = document.getElementById('toast');
+    t.textContent = `「${name}」已加入預訂清單`;
+    t.classList.add('show');
+    clearTimeout(t._timer);
+    t._timer = setTimeout(() => t.classList.remove('show'), 2200);
+  }
+</script>
+</body>
+</html>
