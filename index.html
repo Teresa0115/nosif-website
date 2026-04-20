@@ -116,22 +116,11 @@
       border-right: 1px solid var(--rule);
     }
 
-    .hero-eyebrow {
-      font-size: 0.58rem;
-      letter-spacing: 0.38em;
-      color: var(--ink-lt);
-      text-transform: uppercase;
-      margin-bottom: 2.4rem;
-      display: flex;
-      align-items: center;
-      gap: 0.8rem;
-    }
-    .hero-eyebrow::before {
-      content: '';
+    .hero-logo {
+      width: 450px;
+      height: auto;
       display: block;
-      width: 24px;
-      height: 1px;
-      background: var(--ink-lt);
+      margin-bottom: 2.8rem;
     }
 
     .hero-left h1 {
@@ -212,12 +201,15 @@
     .hero-img-bg {
       width: 100%;
       height: 100%;
-      background: linear-gradient(160deg, #EDE8E1 0%, #CFC8BE 100%);
-      display: flex;
-      align-items: flex-end;
-      justify-content: center;
-      font-size: 6rem;
-      padding-bottom: 2.5rem;
+      background: #EDE8E1;
+      overflow: hidden;
+    }
+    .hero-img-bg img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
     }
     .hero-float {
       position: absolute;
@@ -302,6 +294,13 @@
       font-size: 4rem;
       padding-bottom: 1.5rem;
       margin-bottom: 2.5rem;
+      overflow: hidden;
+    }
+    .cat-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
     }
     .cat-en {
       font-size: 0.58rem;
@@ -836,7 +835,7 @@
 ════════════════════════════════ -->
 <section id="hero">
   <div class="hero-left">
-    <p class="hero-eyebrow">Nosif Pastry · 台北</p>
+    <img class="hero-logo" src="logo.png" alt="Nosif Pastry 法國廚師的甜點" />
     <h1>
       法式手工甜點，<br>
       為日常帶來<br>
@@ -861,14 +860,16 @@
   </div>
   <div class="hero-right">
     <div class="hero-img-wrap">
-      <div class="hero-img-bg">🥐</div>
+      <div class="hero-img-bg">
+        <img src="hero.png" alt="Nosif Pastry 可麗露禮盒" />
+      </div>
       <div class="hero-float f1">
         <div class="hf-label">本週人氣</div>
         <div class="hf-val">可麗露禮盒</div>
       </div>
       <div class="hero-float f2">
         <div class="hf-label">季節限定</div>
-        <div class="hf-val">春季草莓</div>
+        <div class="hf-val">栗子伯爵</div>
       </div>
     </div>
   </div>
@@ -890,7 +891,7 @@
 <section id="categories">
   <div class="cat-item">
     <div class="cat-num">01</div>
-    <div class="cat-img">🍮</div>
+    <div class="cat-img"><img src="hero.png" alt="可麗露禮盒" /></div>
     <p class="cat-en">Canelé de Bordeaux</p>
     <h3 class="cat-zh">可麗露</h3>
     <p class="cat-desc">蜂蠟模具烘烤，焦糖脆殼包覆柔軟蛋奶心。提供原味、巧克力、抹茶、伯爵四種口味，亦有禮盒裝可供選購。</p>
@@ -898,15 +899,15 @@
   </div>
   <div class="cat-item">
     <div class="cat-num">02</div>
-    <div class="cat-img">🥐</div>
+    <div class="cat-img"><img src="croissant.jpg" alt="手工可頌" /></div>
     <p class="cat-en">Croissant</p>
     <h3 class="cat-zh">手工可頌</h3>
-    <p class="cat-desc">72 小時低溫發酵，手工折疊 27 層奶油薄片。原味、巧克力、芋泥三種口味，每日限量現烤。</p>
+    <p class="cat-desc">24 小時低溫發酵，手工折疊 27 層奶油薄片。原味、巧克力、芋泥三種口味，每日限量現烤。</p>
     <span class="cat-link">查看商品</span>
   </div>
   <div class="cat-item">
     <div class="cat-num">03</div>
-    <div class="cat-img">🎂</div>
+    <div class="cat-img"><img src="cake.png" alt="生日蛋糕" /></div>
     <p class="cat-en">Birthday Cake</p>
     <h3 class="cat-zh">生日蛋糕</h3>
     <p class="cat-desc">全客製化訂製，依個人需求設計口味與裝飾。北海道鮮奶油，搭配當季水果，請提前 5 天預訂。</p>
@@ -931,7 +932,7 @@
 
     <div class="prod-card pc-large">
       <div class="pc-img">
-        <span style="font-size:5rem;">🍮</span>
+        <img src="hero.png" alt="可麗露禮盒" />
         <span class="pc-tag">人氣</span>
       </div>
       <p class="pc-cat">Canelé · 可麗露</p>
@@ -945,7 +946,7 @@
 
     <div class="prod-card">
       <div class="pc-img">
-        <span style="font-size:4rem;">🥐</span>
+        <img src="croissant-plain.png" alt="原味可頌" />
         <span class="pc-tag">熱銷</span>
       </div>
       <p class="pc-cat">Croissant · 可頌</p>
@@ -959,7 +960,7 @@
 
     <div class="prod-card">
       <div class="pc-img">
-        <span style="font-size:4rem;">🟤</span>
+        <img src="croissant.jpg" alt="巧克力可頌" />
       </div>
       <p class="pc-cat">Croissant · 可頌</p>
       <h3 class="pc-name">巧克力可頌</h3>
@@ -972,21 +973,21 @@
 
     <div class="prod-card">
       <div class="pc-img">
-        <span style="font-size:4rem;">🌸</span>
-        <span class="pc-tag tag-season">季節限定</span>
+        <img src="quiche.png" alt="法式鹹派" />
+        <span class="pc-tag">每日限量</span>
       </div>
-      <p class="pc-cat">Saison · 季節限定</p>
-      <h3 class="pc-name">春季草莓可頌</h3>
-      <p class="pc-desc">台灣當季草莓內餡，每週限量 20 個。</p>
+      <p class="pc-cat">Quiche · 法式鹹派</p>
+      <h3 class="pc-name">法式鹹派</h3>
+      <p class="pc-desc">奶油酥皮搭配濃郁內餡，鹹香細緻，每日限量現烤。</p>
       <div class="pc-foot">
-        <div class="pc-price">NT$ 120 <sub>/ 個</sub></div>
-        <button class="pc-btn" onclick="toast('春季草莓可頌')">加入預訂</button>
+        <div class="pc-price">NT$ 125 <sub>/ 個</sub></div>
+        <button class="pc-btn" onclick="toast('法式鹹派')">加入預訂</button>
       </div>
     </div>
 
     <div class="prod-card">
       <div class="pc-img">
-        <span style="font-size:4rem;">🎂</span>
+        <img src="cake.png" alt="草莓鮮奶油蛋糕" style="object-position: center bottom;" />
       </div>
       <p class="pc-cat">Cake · 生日蛋糕</p>
       <h3 class="pc-name">草莓鮮奶油蛋糕 6 吋</h3>
@@ -1010,7 +1011,7 @@
     <h2>從巴黎帶回來的<br><em>一份執著</em></h2>
     <div class="story-rule"></div>
     <blockquote>「好的甜點，不需要複雜的說明，一口就能感受到。」</blockquote>
-    <p>Nosif Pastry 的創立，源自主廚在法國工作坊 36 年的磨練——學的不只是配方，而是對食材的尊重，對工法的耐心，以及讓每一口都有記憶點的執著。</p>
+    <p>Nosif Pastry 的創立，源自主廚身為專業甜點師 36 年的經驗累積——學的不只是配方，而是對食材的尊重、對工法的耐心，以及讓每一口都留下記憶點的堅持。</p>
     <p>我們不追求量，只做每天力所能及的份額，讓每一個可麗露、每一個可頌，都在最好的狀態到達你的手中。</p>
     <div class="story-pillars">
       <div class="pillar">
@@ -1032,7 +1033,7 @@
     </div>
   </div>
   <div class="story-right">
-    <div class="story-img-main">🥐</div>
+    <div class="story-img-main"><img src="croissant.jpg" alt="手工可頌" style="width:100%;height:100%;object-fit:cover;object-position:center;" /></div>
     <div class="story-caption">
       <div class="sc-item">
         <div class="sc-val">36 年</div>
@@ -1101,7 +1102,7 @@
         <li><a href="#">Line：@nosifpastry</a></li>
         <li><a href="#">IG：@nosif.pastry</a></li>
         <li><a href="#">hello@nosifpastry.com</a></li>
-        <li><a href="#">台北市大安區</a></li>
+        <li><a href="#">台北市松山區延壽街89號1樓</a></li>
       </ul>
     </div>
   </div>
